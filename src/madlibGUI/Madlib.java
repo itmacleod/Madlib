@@ -10,27 +10,52 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Madlib extends JFrame{
 	private JTextField adjField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField color;
+	private JTextField noun;
+	private JTextField verb;
+	private JTextField output;
 	
 	
 	public void generate() {
 		Random random = new Random();
+		StringBuilder sb = new StringBuilder();
 		
-		int randomPick = random.nextInt(3) + 1; //picks a random number between 1 and 3, inclusive
+		//int randomPick = random.nextInt(3) + 1; //picks a random number between 1 and 3, inclusive
 		
+		int randomPick = 1;
+		
+		//if the first of three sentences is randomly selected
 		if(randomPick == 1) {
-			String sentenceOne = "The took the ball and into the riverbank!";
+			String sentenceOne = "The took the ball and it into the riverbank!";
+			int[] spaces = {1,2,3,8};
 			String[] arr = sentenceOne.split(" ");
 			List<String> sentenceOneAsArr = new ArrayList<>(); //each work in the above sentence will be put into an arraylist. I use an arraylist so I can easily insert the madlib entries into the sentence
 			for(int i = 0; i < arr.length; i++) {
-				sentenceOneAsArr.add(arr[i]);
+				sentenceOneAsArr.add(arr[i]); 
 			}
+			
+			//get user inputted words
+			String adj = adjField.getText();
+			String colr = color.getText();
+			String n = noun.getText();
+			String ver = verb.getText();
+			
+			//adding input into sentence
+			sentenceOneAsArr.add(1, adj);
+			sentenceOneAsArr.add(2, colr);
+			sentenceOneAsArr.add(3, n);
+			sentenceOneAsArr.add(8, ver);
+			
+			for(int i = 0; i < sentenceOneAsArr.size(); i++) {
+				sb.append(sentenceOneAsArr.get(i) + " ");
+			}
+			
+			output.setText(sb.toString());
 		}
 		
 	}
@@ -63,37 +88,42 @@ public class Madlib extends JFrame{
 		colorField.setBounds(242, 64, 93, 18);
 		getContentPane().add(colorField);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(332, 60, 81, 26);
-		getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		color = new JTextField();
+		color.setBounds(332, 60, 81, 26);
+		getContentPane().add(color);
+		color.setColumns(10);
 		
 		JLabel nounField = new JLabel("Enter a noun:");
 		nounField.setBounds(6, 114, 112, 20);
 		getContentPane().add(nounField);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(128, 111, 81, 26);
-		getContentPane().add(textField_2);
-		textField_2.setColumns(10);
+		noun = new JTextField();
+		noun.setBounds(128, 111, 81, 26);
+		getContentPane().add(noun);
+		noun.setColumns(10);
 		
 		JLabel verbField = new JLabel("Enter a verb");
 		verbField.setBounds(242, 114, 93, 20);
 		getContentPane().add(verbField);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(332, 111, 81, 26);
-		getContentPane().add(textField_3);
-		textField_3.setColumns(10);
+		verb = new JTextField();
+		verb.setBounds(332, 111, 81, 26);
+		getContentPane().add(verb);
+		verb.setColumns(10);
 		
 		JButton generateButton = new JButton("Click to genrate madlib!");
+		generateButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				generate();
+			}
+		});
 		generateButton.setBounds(128, 159, 195, 29);
 		getContentPane().add(generateButton);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(43, 200, 355, 72);
-		getContentPane().add(textField_4);
-		textField_4.setColumns(10);
+		output = new JTextField();
+		output.setBounds(6, 200, 438, 72);
+		getContentPane().add(output);
+		output.setColumns(10);
 	}
 
 	public static void main(String[] args) {
