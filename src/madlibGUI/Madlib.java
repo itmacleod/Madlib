@@ -121,7 +121,7 @@ public class Madlib extends JFrame{
 		getContentPane().add(generateButton);
 		
 		output = new JTextField();
-		output.setBounds(6, 200, 438, 72);
+		output.setBounds(0, 200, 450, 78);
 		getContentPane().add(output);
 		output.setColumns(10);
 	}
