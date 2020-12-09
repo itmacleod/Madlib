@@ -27,7 +27,7 @@ public class Madlib extends JFrame{
 		
 		//int randomPick = random.nextInt(3) + 1; //picks a random number between 1 and 3, inclusive
 		
-		int randomPick = 1;
+		int randomPick = random.nextInt(2) + 1;
 		
 		//if the first of three sentences is randomly selected
 		if(randomPick == 1) {
@@ -36,7 +36,7 @@ public class Madlib extends JFrame{
 			String[] arr = sentenceOne.split(" ");
 			List<String> sentenceOneAsArr = new ArrayList<>(); //each work in the above sentence will be put into an arraylist. I use an arraylist so I can easily insert the madlib entries into the sentence
 			for(int i = 0; i < arr.length; i++) {
-				sentenceOneAsArr.add(arr[i]); 
+				sentenceOneAsArr.add(arr[i]);
 			}
 			
 			//get user inputted words
@@ -56,6 +56,32 @@ public class Madlib extends JFrame{
 			}
 			
 			output.setText(sb.toString());
+		}else if(randomPick == 2) {
+			String sentenceTwo = "On Friday I the back home and ate it.";
+			int[] spaces = {3,5,6,7};
+			String[] arr = sentenceTwo.split(" ");
+			List<String> sentenceTwoAsArr = new ArrayList<>();
+			for(int i = 0; i < arr.length; i++) {
+				sentenceTwoAsArr.add(arr[i]);
+			}
+			
+			String adj = adjField.getText();
+			String colr = color.getText();
+			String n = noun.getText();
+			String ver = verb.getText();
+			
+			//adding input into sentence
+			sentenceTwoAsArr.add(3, ver);
+			sentenceTwoAsArr.add(5, adj);
+			sentenceTwoAsArr.add(6, colr);
+			sentenceTwoAsArr.add(7, n);
+			
+			for(int i = 0; i < sentenceTwoAsArr.size(); i++) {
+				sb.append(sentenceTwoAsArr.get(i) + " ");
+			}
+			
+			output.setText(sb.toString());
+			
 		}
 		
 	}
@@ -121,7 +147,7 @@ public class Madlib extends JFrame{
 		getContentPane().add(generateButton);
 		
 		output = new JTextField();
-		output.setBounds(0, 200, 450, 78);
+		output.setBounds(6, 200, 438, 72);
 		getContentPane().add(output);
 		output.setColumns(10);
 	}
