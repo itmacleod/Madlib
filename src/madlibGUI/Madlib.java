@@ -57,7 +57,7 @@ public class Madlib extends JFrame{
 			
 			output.setText(sb.toString());
 		}else if(randomPick == 2) {
-			String sentenceTwo = "On Friday I the back home and ate it.";
+			String sentenceTwo = "On Friday I _ the _ _ _ on the road and ate it.";
 			int[] spaces = {3,5,6,7};
 			String[] arr = sentenceTwo.split(" ");
 			List<String> sentenceTwoAsArr = new ArrayList<>();
@@ -172,7 +172,7 @@ public class Madlib extends JFrame{
 		getContentPane().add(generateButton);
 		
 		output = new JTextField();
-		output.setBounds(0, 200, 450, 72);
+		output.setBounds(0, 200, 516, 72);
 		getContentPane().add(output);
 		output.setColumns(10);
 	}
@@ -181,7 +181,7 @@ public class Madlib extends JFrame{
 		
 		
 		Madlib game = new Madlib();
-		game.setSize(450,375);
+		game.setSize(500,295);
 		game.setVisible(true);
 		
 
