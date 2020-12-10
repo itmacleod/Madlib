@@ -83,8 +83,8 @@ public class Madlib extends JFrame{
 			output.setText(sb.toString());
 			
 		}else {
-			String sentenceThree = "The wants to with the old man!";
-			int[] spaces = {1,2,5,8};
+			String sentenceThree = "The until the old man called the police.";
+			int[] spaces = {1,2,3,6};
 			String[] arr = sentenceThree.split(" ");
 			List<String> sentenceThreeAsArr = new ArrayList<>();
 			for(int i = 0; i < arr.length; i++) {
@@ -99,8 +99,8 @@ public class Madlib extends JFrame{
 			//adding input into sentence
 			sentenceThreeAsArr.add(1, colr);
 			sentenceThreeAsArr.add(2, n);
-			sentenceThreeAsArr.add(5, ver);
-			sentenceThreeAsArr.add(8, adj);
+			sentenceThreeAsArr.add(3, ver);
+			sentenceThreeAsArr.add(6, adj);
 			
 			for(int i = 0; i < sentenceThreeAsArr.size(); i++) {
 				sb.append(sentenceThreeAsArr.get(i) + " ");
@@ -136,11 +136,11 @@ public class Madlib extends JFrame{
 		adjField.setColumns(10);
 		
 		JLabel colorField = new JLabel("Enter a color:");
-		colorField.setBounds(242, 64, 93, 18);
+		colorField.setBounds(221, 64, 93, 18);
 		getContentPane().add(colorField);
 		
 		color = new JTextField();
-		color.setBounds(332, 60, 81, 26);
+		color.setBounds(363, 60, 81, 26);
 		getContentPane().add(color);
 		color.setColumns(10);
 		
@@ -153,12 +153,12 @@ public class Madlib extends JFrame{
 		getContentPane().add(noun);
 		noun.setColumns(10);
 		
-		JLabel verbField = new JLabel("Enter a verb");
-		verbField.setBounds(242, 114, 93, 20);
+		JLabel verbField = new JLabel("Enter a verb (past-tense)");
+		verbField.setBounds(221, 114, 169, 20);
 		getContentPane().add(verbField);
 		
 		verb = new JTextField();
-		verb.setBounds(332, 111, 81, 26);
+		verb.setBounds(383, 111, 61, 26);
 		getContentPane().add(verb);
 		verb.setColumns(10);
 		
@@ -172,7 +172,7 @@ public class Madlib extends JFrame{
 		getContentPane().add(generateButton);
 		
 		output = new JTextField();
-		output.setBounds(6, 200, 438, 72);
+		output.setBounds(0, 200, 450, 72);
 		getContentPane().add(output);
 		output.setColumns(10);
 	}
