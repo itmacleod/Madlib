@@ -74,7 +74,7 @@ public class Madlib extends JFrame{
 			sentenceTwoAsArr.add(3, ver);
 			sentenceTwoAsArr.add(5, adj);
 			sentenceTwoAsArr.add(6, colr);
-			sentenceTwoAsArr.add(7, n);
+			sentenceTwoAsArr.add(7, n); 
 			
 			for(int i = 0; i < sentenceTwoAsArr.size(); i++) {
 				sb.append(sentenceTwoAsArr.get(i) + " ");
@@ -113,7 +113,7 @@ public class Madlib extends JFrame{
 	
 	
 	public Madlib() {
-		getContentPane().setBackground(Color.GRAY);
+		getContentPane().setBackground(Color.PINK);
 		getContentPane().setForeground(Color.WHITE);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Ian MacLeod's GUI Madlibs");
@@ -123,7 +123,7 @@ public class Madlib extends JFrame{
 		JLabel lblNewLabel = new JLabel("IAN MACLEOD'S WHACKY MADLIBS APP\n");
 		lblNewLabel.setFont(new Font("Yuanti TC", Font.BOLD, 16));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setBounds(58, 16, 332, 20);
+		lblNewLabel.setBounds(83, 16, 332, 20);
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("Enter an adjective: ");
@@ -168,7 +168,7 @@ public class Madlib extends JFrame{
 				generate();
 			}
 		});
-		generateButton.setBounds(128, 159, 195, 29);
+		generateButton.setBounds(151, 159, 195, 29);
 		getContentPane().add(generateButton);
 		
 		output = new JTextField();
