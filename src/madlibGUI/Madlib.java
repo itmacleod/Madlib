@@ -27,7 +27,7 @@ public class Madlib extends JFrame{
 		
 		//int randomPick = random.nextInt(3) + 1; //picks a random number between 1 and 3, inclusive
 		
-		int randomPick = random.nextInt(2) + 1;
+		int randomPick = random.nextInt(3) + 1;
 		
 		//if the first of three sentences is randomly selected
 		if(randomPick == 1) {
@@ -82,8 +82,33 @@ public class Madlib extends JFrame{
 			
 			output.setText(sb.toString());
 			
+		}else {
+			String sentenceThree = "The wants to with the old man!";
+			int[] spaces = {1,2,5,8};
+			String[] arr = sentenceThree.split(" ");
+			List<String> sentenceThreeAsArr = new ArrayList<>();
+			for(int i = 0; i < arr.length; i++) {
+				sentenceThreeAsArr.add(arr[i]);
+			}
+			
+			String adj = adjField.getText();
+			String colr = color.getText();
+			String n = noun.getText();
+			String ver = verb.getText();
+			
+			//adding input into sentence
+			sentenceThreeAsArr.add(1, colr);
+			sentenceThreeAsArr.add(2, n);
+			sentenceThreeAsArr.add(5, ver);
+			sentenceThreeAsArr.add(8, adj);
+			
+			for(int i = 0; i < sentenceThreeAsArr.size(); i++) {
+				sb.append(sentenceThreeAsArr.get(i) + " ");
+			}
+			
+			output.setText(sb.toString());
 		}
-		
+		 
 	}
 	
 	
