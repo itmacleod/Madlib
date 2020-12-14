@@ -56,8 +56,10 @@ public class Madlib extends JFrame{
 			}
 			
 			output.setText(sb.toString());
+			
+			
 		}else if(randomPick == 2) {
-			String sentenceTwo = "On Friday I _ the _ _ _ on the road and ate it.";
+			String sentenceTwo = "On Friday I the on the road and ate it.";
 			int[] spaces = {3,5,6,7};
 			String[] arr = sentenceTwo.split(" ");
 			List<String> sentenceTwoAsArr = new ArrayList<>();
@@ -81,6 +83,7 @@ public class Madlib extends JFrame{
 			}
 			
 			output.setText(sb.toString());
+			
 			
 		}else {
 			String sentenceThree = "The until the old man called the police.";
@@ -106,7 +109,7 @@ public class Madlib extends JFrame{
 				sb.append(sentenceThreeAsArr.get(i) + " ");
 			}
 			
-			output.setText(sb.toString());
+			output.setText(sb.toString()); 
 		}
 		 
 	}
@@ -119,6 +122,7 @@ public class Madlib extends JFrame{
 		setTitle("Ian MacLeod's GUI Madlibs");
 		setBackground(Color.WHITE);
 		getContentPane().setLayout(null);
+		this.setResizable(false);
 		
 		JLabel lblNewLabel = new JLabel("IAN MACLEOD'S WHACKY MADLIBS APP\n");
 		lblNewLabel.setFont(new Font("Yuanti TC", Font.BOLD, 16));
